@@ -1,0 +1,37 @@
+# === Foundry & Solidity ===
+out/
+cache/
+lib/
+artifacts/
+broadcast/
+
+# === Logs & Fehlermeldungen (Wichtig!) ===
+# Hier werden alle Fehlermeldungen und Log-Dateien abgefangen
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+forge-test.log
+combined.log
+
+# === Systemdateien ===
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# === IDEs & Editoren ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === Sicherheit & Private Daten ===
+# Niemals Private Keys oder API-Keys hochladen!
+.env
+.env.local
+.secret
+*.pem
+
+# === Node (falls später benötigt) ===
+node_modules/
