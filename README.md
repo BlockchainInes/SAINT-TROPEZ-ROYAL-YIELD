@@ -61,7 +61,9 @@ Current Status
 ✅ Ready for testnet deployment
 
 
+
 Future Improvements
+
 I am actively expanding this project. Currently working on:
 
 📈 Advanced Yield Distribution: More complex mechanisms for profit sharing.
@@ -99,6 +101,7 @@ forge build
 
 # 3. Run all tests
 forge test -vv
+
 
 
 ### 🏗️ Protocol Architecture
