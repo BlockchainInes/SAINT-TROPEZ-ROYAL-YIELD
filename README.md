@@ -1,4 +1,4 @@
-🏰 Saint Tropez Royal Yield Vault
+🏰 Saint Tropez Royal Yield 
 
 Luxury Real Estate Fractionalization Protocol Tokenizing high-end properties in Saint-Tropez for fractional ownership.
 
