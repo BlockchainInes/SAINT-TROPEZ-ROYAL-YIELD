@@ -5,14 +5,18 @@
 ## 💎 Luxury Real Estate Fractionalization Protocol
 **Tokenizing high-end properties in Saint-Tropez for fractional ownership.**
 
+
 🌟 Overview
 
 SAINT-TROPEZ-ROYAL-YIELD is a secure and compliant ERC-1155 smart contract engineered for the fractionalization of luxury real estate (Real World Assets - RWA).
 
-The contract allows an Asset Manager to create digital tokens representing ownership shares in high-value properties, while a Security Officer manages investor whitelisting to ensure full regulatory compliance and KYC/AML standards.
+The contract allows an Asset Manager to create digital tokens representing ownership shares in high-value properties, while a Security Officer manages investor whitelisting to ensure full regulatory compliance and KYC/AML standards.:
+
+
 
 🛠️ Core Features
 Fractionalize Assets: Create ERC-1155 tokens representing shares of luxury property (fractionalizeAsset).
+
 
 
 Role-Based Access Control:
@@ -54,6 +58,7 @@ Command: forge test -vv
 
 
 
+
 🚀 Current Status & Roadmap
 Current Status
 
@@ -62,6 +67,7 @@ Current Status
 ✅ All unit tests passing
 
 ✅ Ready for testnet deployment
+
 
 
 
