@@ -9,6 +9,7 @@ The contract allows an Asset Manager to create digital tokens representing owner
 🛠️ Core Features
 Fractionalize Assets: Create ERC-1155 tokens representing shares of luxury property (fractionalizeAsset).
 
+
 Role-Based Access Control:
 
 👑 DEFAULT_ADMIN_ROLE: Full protocol oversight.
@@ -22,6 +23,7 @@ Strict Whitelist Enforcement: Only KYC-approved investors can receive or transfe
 Asset Metadata: Stores property name, valuation, and a default annual yield rate (5.5%) on-chain.
 
 Security Standards: Built with OpenZeppelin's ReentrancyGuard and AccessControl.
+
 
 🧪 Proven Success (Testing)
 I have developed and thoroughly tested the core features using Foundry with a 100% success rate.
@@ -44,6 +46,7 @@ I have developed and thoroughly tested the core features using Foundry with a 10
 
 Command: forge test -vv
 
+
 🚀 Current Status & Roadmap
 Current Status
 
@@ -52,6 +55,7 @@ Current Status
 ✅ All unit tests passing
 
 ✅ Ready for testnet deployment
+
 
 Future Improvements
 I am actively expanding this project. Currently working on:
@@ -70,6 +74,7 @@ I am actively expanding this project. Currently working on:
 
 🔍 Audit Readiness: Preparing full documentation for security audits.
 
+
 💻 Tech Stack
 Language: Solidity ^0.8.20
 
@@ -81,6 +86,7 @@ Testing: Forge Std
 
 📥 Quick Start
 Bash
+
 # 1. Install dependencies
 forge install
 
