@@ -93,24 +93,20 @@ Developed with 💙 by Inés for the Saint-Tropez Royal Yield Project.
 
 ```mermaid
 graph TD
-    %% Roles
     Admin((👑 Admin)) -- "Grants Roles" --> Vault
     Manager((💼 Asset Manager)) -- "Mints Property Tokens" --> Vault
     Officer((🛡️ Security Officer)) -- "Whitelists Investors" --> Vault
 
-    %% Contract Logic
     subgraph "Saint Tropez Royal Yield Vault (ERC-1155)"
         Vault{Smart Contract}
         Data[(On-Chain Metadata:<br/>Price, Yield 5.5%)]
         Rules{Compliance Logic}
     end
 
-    %% Investor Flow
     InvestorA[👤 Investor A<br/>Whitelisted] -- "Can trade" --> Token((Token Share))
     InvestorB[👤 Investor B<br/>Whitelisted] -- "Can trade" --> Token
     NonAuth[❌ Unverified User] -- "BLOCKED" --> Token
 
-    %% Connections
     Vault --> Rules
     Rules --> Token
     Token --- Data
