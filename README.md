@@ -89,28 +89,28 @@ forge build
 forge test -vv
 Developed with 💙 by Inés for the Saint-Tropez Royal Yield Project.
 
-### 📊 Protocol Architecture
+### 🏗️ Protocol Architecture
 
 ```mermaid
 graph TD
-    %% Users & Roles
-    Admin[👑 DEFAULT_ADMIN_ROLE<br/>(Inés)] -->|Manages Roles| Vault
-    AssetManager[💼 ASSET_MANAGER_ROLE] -->|Create & Mint| Vault
-    SecurityOfficer[🛡️ SECURITY_OFFICER_ROLE] -->|Whitelist Investors| Vault
-    
-    %% Investors
-    InvestorA[👤 Whitelisted Investor A] -.->|Can Receive/Transfer| Token1155
-    InvestorB[👤 Whitelisted Investor B] -.->|Can Receive/Transfer| Token1155
-    NonWhitelisted[❌ Non-Whitelisted Address] -.->|BLOCKED| Token1155
+    %% Roles
+    Admin((👑 Admin)) -- "Grants Roles" --> Vault
+    Manager((💼 Asset Manager)) -- "Mints Property Tokens" --> Vault
+    Officer((🛡️ Security Officer)) -- "Whitelists Investors" --> Vault
 
-    %% Vault Contract
+    %% Contract Logic
     subgraph "Saint Tropez Royal Yield Vault (ERC-1155)"
-        Vault[Core Smart Contract]
-        Token1155(Property Tokens<br/>Fractional Shares)
-        Data[On-Chain Metadata:<br/>Property Name, Valuation, 5.5% Yield]
+        Vault{Smart Contract}
+        Data[(On-Chain Metadata:<br/>Price, Yield 5.5%)]
+        Rules{Compliance Logic}
     end
 
-    %% Actions
-    AssetManager -->|Calls fractionalizeAsset| Token1155
-    SecurityOfficer -->|Calls addToWhitelist| Vault
-    Token1155 --- Data
+    %% Investor Flow
+    InvestorA[👤 Investor A<br/>Whitelisted] -- "Can trade" --> Token((Token Share))
+    InvestorB[👤 Investor B<br/>Whitelisted] -- "Can trade" --> Token
+    NonAuth[❌ Unverified User] -- "BLOCKED" --> Token
+
+    %% Connections
+    Vault --> Rules
+    Rules --> Token
+    Token --- Data
