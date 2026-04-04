@@ -1,9 +1,12 @@
-🏰 Saint Tropez Royal Yield 
+# 🏰 SAINT TROPEZ ROYAL YIELD VAULT
 
-Luxury Real Estate Fractionalization Protocol Tokenizing high-end properties in Saint-Tropez for fractional ownership.
+> **Repository:** `SAINT-TROPEZ-ROYAL-YIELD`
+
+## 💎 Luxury Real Estate Fractionalization Protocol
+**Tokenizing high-end properties in Saint-Tropez for fractional ownership.**
 
 🌟 Overview
-SaintTropezVault is a secure and compliant ERC-1155 smart contract engineered for the fractionalization of luxury real estate (Real World Assets - RWA).
+SAINT-TROPEZ-ROYAL-YIELD is a secure and compliant ERC-1155 smart contract engineered for the fractionalization of luxury real estate (Real World Assets - RWA).
 
 The contract allows an Asset Manager to create digital tokens representing ownership shares in high-value properties, while a Security Officer manages investor whitelisting to ensure full regulatory compliance and KYC/AML standards.
 
