@@ -27,6 +27,7 @@ Security Standards: Built with OpenZeppelin's ReentrancyGuard and AccessControl.
 I have developed and thoroughly tested the core features using Foundry with a 100% success rate.
 
 7/7 Unit Tests Passed
+
 ✅ Deployment & Roles: Verified correct initialization.
 
 ✅ Whitelist Logic: Confirmed investor management functionality.
@@ -45,6 +46,7 @@ Command: forge test -vv
 
 🚀 Current Status & Roadmap
 Current Status
+
 ✅ Contract is fully functional and tested
 
 ✅ All unit tests passing
@@ -87,7 +89,7 @@ forge build
 
 # 3. Run all tests
 forge test -vv
-Developed with 💙 by Inés for the Saint-Tropez Royal Yield Project.
+
 
 ### 🏗️ Protocol Architecture
 
