@@ -88,3 +88,29 @@ forge build
 # 3. Run all tests
 forge test -vv
 Developed with 💙 by Inés for the Saint-Tropez Royal Yield Project.
+
+### 📊 Protocol Architecture
+
+```mermaid
+graph TD
+    %% Users & Roles
+    Admin[👑 DEFAULT_ADMIN_ROLE<br/>(Inés)] -->|Manages Roles| Vault
+    AssetManager[💼 ASSET_MANAGER_ROLE] -->|Create & Mint| Vault
+    SecurityOfficer[🛡️ SECURITY_OFFICER_ROLE] -->|Whitelist Investors| Vault
+    
+    %% Investors
+    InvestorA[👤 Whitelisted Investor A] -.->|Can Receive/Transfer| Token1155
+    InvestorB[👤 Whitelisted Investor B] -.->|Can Receive/Transfer| Token1155
+    NonWhitelisted[❌ Non-Whitelisted Address] -.->|BLOCKED| Token1155
+
+    %% Vault Contract
+    subgraph "Saint Tropez Royal Yield Vault (ERC-1155)"
+        Vault[Core Smart Contract]
+        Token1155(Property Tokens<br/>Fractional Shares)
+        Data[On-Chain Metadata:<br/>Property Name, Valuation, 5.5% Yield]
+    end
+
+    %% Actions
+    AssetManager -->|Calls fractionalizeAsset| Token1155
+    SecurityOfficer -->|Calls addToWhitelist| Vault
+    Token1155 --- Data
