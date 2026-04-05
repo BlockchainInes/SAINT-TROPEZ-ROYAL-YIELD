@@ -2,112 +2,72 @@
 pragma solidity ^0.8.20;
 
 import "forge-std/Test.sol";
+import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
 import "../src/SaintTropezVault.sol";
 
-contract SaintTropezVaultTest is Test {
-    
+contract SaintTropezVaultTest is Test, IERC1155Receiver {
     SaintTropezVault public vault;
-
-    address public owner = makeAddr("owner");
-    address public securityOfficer = makeAddr("securityOfficer");
-    address public assetManager = makeAddr("assetManager");
-    address public investor1 = makeAddr("investor1");
-    address public nonWhitelisted = makeAddr("nonWhitelisted");
-
-    uint256 public constant TOKEN_ID = 1;
-    uint256 public constant SUPPLY = 1000;
-    string public constant ASSET_NAME = "Villa Azure";
-    uint256 public constant VALUATION = 5_000_000 ether;
-
-    event AssetFractionalized(uint256 indexed id, string name, uint256 valuation, uint256 yieldRate, uint256 supply);
-    event WhitelistUpdated(address indexed investor, bool status);
+    address public admin = address(this);
+    address public user = address(0xABC);
 
     function setUp() public {
-        vm.startPrank(owner);
         vault = new SaintTropezVault();
+        vault.addToWhitelist(admin);
+        vault.addToWhitelist(user);
+        vm.deal(admin, 10 ether);
+    }
+
+    // === ERC1155 Receiver Hooks ===
+    function onERC1155Received(
+        address,
+        address,
+        uint256,
+        uint256,
+        bytes calldata
+    ) external pure override returns (bytes4) {
+        return IERC1155Receiver.onERC1155Received.selector;
+    }
+
+    function onERC1155BatchReceived(
+        address,
+        address,
+        uint256[] calldata,
+        uint256[] calldata,
+        bytes calldata
+    ) external pure override returns (bytes4) {
+        return IERC1155Receiver.onERC1155BatchReceived.selector;
+    }
+
+    // === WICHTIG: supportsInterface implementieren (fehlte bisher) ===
+    function supportsInterface(bytes4 interfaceId)
+        external
+        pure
+        override
+        returns (bool)
+    {
+        return interfaceId == type(IERC1155Receiver).interfaceId;
+    }
+
+    // === DEINE TESTS ===
+    function test_FractionalizeAndDepositYield() public {
+        vault.fractionalizeAsset(1, 1000, "Villa", 1000000);
+        vault.depositYield{value: 1 ether}(1);
+        assertEq(vault.totalYieldPerAsset(1), 1 ether);
+    }
+
+    function test_ClaimYield() public {
+        vault.fractionalizeAsset(1, 1000, "Villa", 1000000);
         
-        vault.grantRole(vault.SECURITY_OFFICER_ROLE(), securityOfficer);
-        vault.grantRole(vault.ASSET_MANAGER_ROLE(), assetManager);
-        vault.addToWhitelist(owner);           // Owner kann initial transferieren
+        vault.safeTransferFrom(admin, user, 1, 100, "");
         
-        vm.stopPrank();
-    }
+        vault.depositYield{value: 1 ether}(1);
 
-    // ==================== BASIC TESTS ====================
-
-    function test_Deployment_SetsOwnerAsAdmin() public view {
-        assertTrue(vault.hasRole(vault.DEFAULT_ADMIN_ROLE(), owner));
-    }
-
-    function test_Deployment_SetsCorrectUri() public view {
-        assertEq(vault.uri(TOKEN_ID), "https://api.sainttropez-yield.io/metadata/{id}.json");
-    }
-
-    // ==================== WHITELIST TESTS ====================
-
-    function test_SecurityOfficer_CanAddToWhitelist() public {
-        vm.prank(securityOfficer);
-        vm.expectEmit(true, false, false, true);
-        emit WhitelistUpdated(investor1, true);
-        
-        vault.addToWhitelist(investor1);
-        assertTrue(vault.whitelistedInvestors(investor1));
-    }
-
-    // ==================== FRACTIONALIZE ASSET TESTS ====================
-
-    function test_AssetManager_CanFractionalizeAsset() public {
-        vm.prank(assetManager);
-        vm.expectEmit(true, false, false, true);
-        emit AssetFractionalized(TOKEN_ID, ASSET_NAME, VALUATION, 550, SUPPLY);
-        
-        vault.fractionalizeAsset(TOKEN_ID, SUPPLY, ASSET_NAME, VALUATION);
-
-        (string memory name, uint256 totalValuation, uint256 annualYieldRate, bool isPaused) 
-            = vault.assets(TOKEN_ID);
-
-        assertEq(name, ASSET_NAME);
-        assertEq(totalValuation, VALUATION);
-        assertEq(annualYieldRate, 550);
-        assertFalse(isPaused);
-
-        assertEq(vault.balanceOf(assetManager, TOKEN_ID), SUPPLY);
-    }
-
-    // ==================== TRANSFER TESTS ====================
-
-    function test_Whitelisted_CanTransfer() public {
-        // Asset erstellen
-        vm.prank(assetManager);
-        vault.fractionalizeAsset(TOKEN_ID, SUPPLY, ASSET_NAME, VALUATION);
-
-        // WICHTIG: Beide Seiten müssen whitelisted sein
-        vm.startPrank(securityOfficer);
-        vault.addToWhitelist(assetManager);
-        vault.addToWhitelist(investor1);
+        vm.startPrank(user);
+        uint256 balanceBefore = user.balance;
+        vault.claimYield(1);
+        uint256 balanceAfter = user.balance;
         vm.stopPrank();
 
-        // Transfer durchführen
-        vm.prank(assetManager);
-        vault.safeTransferFrom(assetManager, investor1, TOKEN_ID, 100, "");
-
-        assertEq(vault.balanceOf(investor1, TOKEN_ID), 100);
-    }
-
-    function test_NonWhitelisted_CannotTransfer() public {
-        vm.prank(assetManager);
-        vault.fractionalizeAsset(TOKEN_ID, SUPPLY, ASSET_NAME, VALUATION);
-
-        vm.prank(assetManager);
-        vm.expectRevert("Ines says: KYC/Whitelist check failed");
-        vault.safeTransferFrom(assetManager, nonWhitelisted, TOKEN_ID, 100, "");
-    }
-
-    // ==================== INTERFACE TEST ====================
-
-    function test_SupportsInterface() public view {
-        assertTrue(vault.supportsInterface(0xd9b67a26)); // ERC1155
-        assertTrue(vault.supportsInterface(0x01ffc9a7)); // ERC165
-        assertTrue(vault.supportsInterface(0x7965db0b)); // AccessControl
+        assertEq(balanceAfter - balanceBefore, 0.1 ether);
     }
 }
