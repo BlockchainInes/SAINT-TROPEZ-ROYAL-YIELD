@@ -71,24 +71,26 @@ Current Status
 
 
 
-Future Improvements
+## 🚀 Roadmap & Progress
 
-I am actively expanding this project. Currently working on:
+I am actively developing this protocol. Here is the current status of the planned improvements:
 
-📈 Advanced Yield Distribution: More complex mechanisms for profit sharing.
+* ✅ **Asset Management**: [DONE] Implemented granular pausing/unpausing for specific asset IDs to handle maintenance or legal updates.
+* 📈 **Advanced Yield Distribution**: [In Progress] Developing complex mechanisms for automated profit sharing.
+* 📜 **Deployment Scripts**: Planned full scripts for Sepolia and Ethereum Mainnet.
+* 🧪 **Advanced Testing**: Planned integration of Fuzzing and Invariant tests.
+* 🖥️ **Frontend Dashboard**: Planned UI build with React + Wagmi + RainbowKit.
+* 🤖 **Automation**: Planned automated yield calculation and claiming via Chainlink Keepers.
+* 🔍 **Audit Readiness**: Preparing full documentation for security audits.
 
-⏸️ Asset Management: Pausing/unpausing specific asset IDs.
+---
 
-📜 Deployment Scripts: Full scripts for Sepolia and Ethereum Mainnet.
+## 🛠 Technical Features (Updated)
 
-🧪 Advanced Testing: Implementing Fuzzing and Invariant tests.
-
-🖥️ Frontend Dashboard: Building a UI with React + Wagmi + RainbowKit.
-
-🤖 Automation: Automated yield calculation and claiming.
-
-🔍 Audit Readiness: Preparing full documentation for security audits.
-
+* **Fractionalization**: Divide high-value assets into ERC1155 tokens.
+* **Access Control**: Different levels of permissions (Admin, Security Officer, Asset Manager).
+* **Compliance**: Built-in whitelist system for KYC-verified investors.
+* **Granular Security**: Ability to pause trading for individual assets without affecting the entire vault.
 
 💻 Tech Stack
 Language: Solidity ^0.8.20
