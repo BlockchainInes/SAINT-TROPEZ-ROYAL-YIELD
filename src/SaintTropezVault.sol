@@ -12,7 +12,7 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
  */
 contract SaintTropezVault is ERC1155, AccessControl, ReentrancyGuard {
 
-    // Roles definition using Keccak256 hashes
+    // Roles definition using Keccak256 hashes for security and efficiency
     bytes32 public constant SECURITY_OFFICER_ROLE = keccak256("SECURITY_OFFICER_ROLE");
     bytes32 public constant ASSET_MANAGER_ROLE = keccak256("ASSET_MANAGER_ROLE");
 
@@ -39,13 +39,15 @@ contract SaintTropezVault is ERC1155, AccessControl, ReentrancyGuard {
     
     event WhitelistUpdated(address indexed investor, bool status);
 
-    // Event triggered when an asset's pause status is toggled
+    // Triggered when an asset's pause status is toggled by the Manager
     event AssetPauseStatusChanged(uint256 indexed id, bool paused);
 
+    /**
+     * @dev Constructor initializes the vault and grants roles to the deployer.
+     */
     constructor() 
         ERC1155("https://api.sainttropez-yield.io/metadata/{id}.json") 
     {
-        // Granting all initial roles to the deployer (Inés)
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(SECURITY_OFFICER_ROLE, msg.sender);
         _grantRole(ASSET_MANAGER_ROLE, msg.sender);
@@ -54,7 +56,7 @@ contract SaintTropezVault is ERC1155, AccessControl, ReentrancyGuard {
     // ==================== MODIFIERS ====================
 
     /**
-     * @dev Restricts access to whitelisted investors only
+     * @dev Modifier to ensure only whitelisted addresses can perform transfers.
      */
     modifier onlyWhitelisted() {
         require(whitelistedInvestors[msg.sender], "Ines says: KYC/Whitelist check failed");
@@ -64,7 +66,7 @@ contract SaintTropezVault is ERC1155, AccessControl, ReentrancyGuard {
     // ==================== WHITELIST FUNCTIONS ====================
 
     /**
-     * @dev Security Officer adds an investor to the whitelist
+     * @dev Grants the whitelisted status to an investor. Only Security Officers allowed.
      */
     function addToWhitelist(address investor) 
         external 
@@ -75,7 +77,7 @@ contract SaintTropezVault is ERC1155, AccessControl, ReentrancyGuard {
     }
 
     /**
-     * @dev Security Officer removes an investor from the whitelist
+     * @dev Revokes the whitelisted status. Only Security Officers allowed.
      */
     function removeFromWhitelist(address investor) 
         external 
@@ -88,7 +90,7 @@ contract SaintTropezVault is ERC1155, AccessControl, ReentrancyGuard {
     // ==================== ASSET FUNCTIONS ====================
 
     /**
-     * @dev Asset Manager mints property tokens and defines asset metadata
+     * @dev Mints new property tokens and stores their valuation data.
      */
     function fractionalizeAsset(
         uint256 id,
@@ -101,7 +103,7 @@ contract SaintTropezVault is ERC1155, AccessControl, ReentrancyGuard {
         assets[id] = Asset({
             name: name,
             totalValuation: valuation,
-            annualYieldRate: 550,     // 5.5% Default yield
+            annualYieldRate: 550,     // 5.5% Default standard yield
             isPaused: false
         });
 
@@ -111,8 +113,8 @@ contract SaintTropezVault is ERC1155, AccessControl, ReentrancyGuard {
     }
 
     /**
-     * @dev Allows the Asset Manager to pause/unpause trading for a specific asset ID.
-     * Essential for legal updates or property maintenance periods.
+     * @dev Allows the Asset Manager to pause/unpause a specific property.
+     * Essential for maintenance, legal updates, or property sales.
      */
     function setAssetPauseStatus(uint256 id, bool pauseStatus) 
         external 
@@ -128,7 +130,7 @@ contract SaintTropezVault is ERC1155, AccessControl, ReentrancyGuard {
     // ==================== OVERRIDES ====================
 
     /**
-     * @dev Required override to resolve conflicts between ERC1155 and AccessControl
+     * @dev Required override to resolve interface conflicts between ERC1155 and AccessControl.
      */
     function supportsInterface(bytes4 interfaceId)
         public
@@ -141,7 +143,7 @@ contract SaintTropezVault is ERC1155, AccessControl, ReentrancyGuard {
     }
 
     /**
-     * @dev Overrides safeTransferFrom to enforce both Whitelist and Asset Pause checks
+     * @dev Overrides safeTransferFrom to enforce both Whitelist and Granular Pause checks.
      */
     function safeTransferFrom(
         address from,
@@ -160,7 +162,7 @@ contract SaintTropezVault is ERC1155, AccessControl, ReentrancyGuard {
     }
 
     /**
-     * @dev Overrides safeBatchTransferFrom to enforce checks for all assets in the batch
+     * @dev Batch-transfer protection ensuring no paused assets are moved in a group.
      */
     function safeBatchTransferFrom(
         address from,
