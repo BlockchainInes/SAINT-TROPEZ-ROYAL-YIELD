@@ -82,7 +82,6 @@ I am actively developing this protocol. Here is the current status of the planne
 * ✅ Advanced Yield Logic: ETH-based distribution and claiming system.
 * ✅ Advanced Testing: Implementation of Fuzzing and Invariant tests.
 * 📜 **Deployment Scripts**: Planned full scripts for Sepolia and Ethereum Mainnet.
-* 🧪 **Advanced Testing**: Planned integration of Fuzzing and Invariant tests.
 * 🖥️ **Frontend Dashboard**: Planned UI build with React + Wagmi + RainbowKit.
 * 🤖 **Automation**: Planned automated yield calculation and claiming via Chainlink Keepers.
 * 🔍 **Audit Readiness**: Preparing full documentation for security audits.
