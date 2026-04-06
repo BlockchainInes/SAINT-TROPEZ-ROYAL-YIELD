@@ -1,105 +1,139 @@
-# 🏰 SAINT TROPEZ ROYAL YIELD
+# 🏰 SAINT TROPEZ ROYAL YIELD VAULT
 
-**Repository:** `SAINT-TROPEZ-ROYAL-YIELD`  
-**Concept:** 💎 Luxury Real Estate Fractionalization Protocol
+> **Repository:** `SAINT-TROPEZ-ROYAL-YIELD`
 
-## 🌟 Overview
-**SAINT-TROPEZ-ROYAL-YIELD** is a secure, compliant, and rigorously tested smart contract architecture designed for the fractionalization of high-end luxury real estate (Real World Assets - RWA). 
+## 💎 Luxury Real Estate Fractionalization Protocol
+**Tokenizing high-end properties in Saint-Tropez for fractional ownership.**
 
-Built on the **ERC-1155** standard, the protocol allows an Asset Manager to mint digital shares representing ownership in premium properties, while a dedicated Security Officer ensures that only KYC-verified and whitelisted investors can participate in the ecosystem.
 
----
+🌟 Overview
 
-## 🏗️ Architecture & Protocol Flow
+SAINT-TROPEZ-ROYAL-YIELD is a secure and compliant ERC-1155 smart contract engineered for the fractionalization of luxury real estate (Real World Assets - RWA).
 
-```mermaid
-graph TD
-    subgraph Roles
-        A[Admin] -- Grant Roles --> AM[Asset Manager]
-        A -- Grant Roles --> SO[Security Officer]
-    end
+The contract allows an Asset Manager to create digital tokens representing ownership shares in high-value properties, while a Security Officer manages investor whitelisting to ensure full regulatory compliance and KYC/AML standards.:
 
-    subgraph Actions
-        AM -- Fractionalize Property --> V[Saint Tropez Vault]
-        AM -- Deposit ETH Yield --> V
-        SO -- KYC Whitelist --> I[Investor]
-    end
 
-    subgraph "Yield Flow"
-        I -- Holds ERC-1155 Tokens --> V
-        I -- claimYield --> V
-        V -- Proportional ETH --> I
-    end
 
-    style V fill:#f9f,stroke:#333,stroke-width:4px
-    style I fill:#bbf,stroke:#333,stroke-width:2px
 🛠️ Core Features
-Fractionalized Ownership: High-value assets are divided into affordable on-chain tokens.
+Fractionalize Assets: Create ERC-1155 tokens representing shares of luxury property (fractionalizeAsset).
 
-Role-Based Access Control (RBAC):
+
+
+Role-Based Access Control:
 
 👑 DEFAULT_ADMIN_ROLE: Full protocol oversight.
 
-💼 ASSET_MANAGER_ROLE: Manages asset minting, valuations, and yield deposits.
+💼 ASSET_MANAGER_ROLE: Authorized to mint and manage fractional assets.
 
-🛡️ SECURITY_OFFICER_ROLE: Handles investor whitelisting (KYC/AML).
+🛡️ SECURITY_OFFICER_ROLE: Manages investor whitelisting.
 
-Compliance Layer: Built-in whitelist enforcement for all token transfers.
+Strict Whitelist Enforcement: Only KYC-approved investors can receive or transfer tokens.
 
-Automated Yield Distribution: Proportional ETH-based profit sharing based on token holdings.
+Asset Metadata: Stores property name, valuation, and a default annual yield rate (5.5%) on-chain.
 
-Granular Security: Ability to pause/manage specific asset IDs without affecting the entire vault.
+Security Standards: Built with OpenZeppelin's ReentrancyGuard and AccessControl.
 
-🧪 Advanced Testing & Quality Assurance
-The protocol's integrity is verified using the Foundry (Forge) framework. I have implemented a multi-layered testing strategy to ensure economic and technical security.
 
-📊 Testing Methodologies
-Unit Testing: 100% coverage of core functions like minting, whitelisting, and role assignments.
 
-Access Control (Revert Tests): Verified that unauthorized users are strictly blocked from sensitive administrative functions.
+🧪 Proven Success (Testing)
+I have developed and thoroughly tested the core features using Foundry with a 100% success rate.
 
-Fuzz Testing: Property-based testing used to verify the claimYield logic across 256+ random scenarios (varying ETH deposits and token supplies).
+7/7 Unit Tests Passed
 
-Invariant Testing: Mathematical proof that the Total Claimed Yield can never exceed the Total Deposited Yield.
+✅ Deployment & Roles: Verified correct initialization.
 
-Boundary Testing: Confirmed precision and stability with high token supplies.
+✅ Whitelist Logic: Confirmed investor management functionality.
 
-🚀 Run Tests
-To verify the robustness locally, ensure you have Foundry installed and run:
+✅ Fractionalization: Tested minting and metadata storage.
 
-Bash
-# Build the project
-forge build
+✅ Restricted Transfers: Ensured only whitelisted addresses can trade.
 
-# Run all tests (including Fuzzing)
-forge test -vv
+✅ Security Barriers: Blocked unauthorized transfer attempts.
 
-# Generate coverage report
-forge coverage
+✅ ID Collision: Prevented duplicate asset creation.
+
+✅ Standard Compliance: Fully supports ERC-1155 + ERC-165.
+
+Command: forge test -vv
+
+
+
+
+🚀 Current Status & Roadmap
+Current Status
+
+✅ Contract is fully functional and tested
+
+✅ All unit tests passing
+
+✅ Ready for testnet deployment
+
+
+
+
+## 🚀 Roadmap & Progress
+
+I am actively developing this protocol. Here is the current status of the planned improvements:
+
+* ✅ **Asset Management**: [DONE] Implemented granular pausing/unpausing for specific asset IDs to handle maintenance or legal updates.
+* ✅ Advanced Yield Distribution: [DONE] Implemented proportional ETH-based profit sharing and automated calculation logic per asset holder.
+* 📜 **Deployment Scripts**: Planned full scripts for Sepolia and Ethereum Mainnet.
+* 🧪 **Advanced Testing**: Planned integration of Fuzzing and Invariant tests.
+* 🖥️ **Frontend Dashboard**: Planned UI build with React + Wagmi + RainbowKit.
+* 🤖 **Automation**: Planned automated yield calculation and claiming via Chainlink Keepers.
+* 🔍 **Audit Readiness**: Preparing full documentation for security audits.
+
+---
+
+## 🛠 Technical Features (Updated)
+
+* **Fractionalization**: Divide high-value assets into ERC1155 tokens.
+* **Access Control**: Different levels of permissions (Admin, Security Officer, Asset Manager).
+* **Compliance**: Built-in whitelist system for KYC-verified investors.
+* **Granular Security**: Ability to pause trading for individual assets without affecting the entire vault.
+
 💻 Tech Stack
 Language: Solidity ^0.8.20
 
 Framework: Foundry (Forge)
 
-Library: OpenZeppelin (AccessControl, ReentrancyGuard, ERC1155)
+Libraries: OpenZeppelin Contracts
 
-Environment: Designed for Ethereum / Layer 2 (Sepolia Testnet ready)
+Testing: Forge Std
 
-🚀 Roadmap & Progress
-[x] Core Protocol Development: ERC-1155 implementation and role management.
+📥 Quick Start
+Bash
 
-[x] Whitelisting System: Secure KYC-based transfer logic.
+# 1. Install dependencies
+forge install
 
-[x] Advanced Yield Logic: ETH-based distribution and claiming system.
+# 2. Build the project
+forge build
 
-[x] Advanced Testing: Implementation of Fuzzing and Invariant tests.
+# 3. Run all tests
+forge test -vv
 
-[ ] Deployment Scripts: Full scripts for Sepolia and Ethereum Mainnet.
 
-[ ] Automation: Integrating Chainlink Keepers for automated yield triggers.
 
-[ ] Frontend Dashboard: UI build with React + Wagmi + RainbowKit.
+### 🏗️ Protocol Architecture
 
-Author: Inés Krüger
+```mermaid
+graph TD
+    Admin((👑 Admin)) -- "Grants Roles" --> Vault
+    Manager((💼 Asset Manager)) -- "Mints Property Tokens" --> Vault
+    Officer((🛡️ Security Officer)) -- "Whitelists Investors" --> Vault
 
-Smart Contract Developer & Blockchain Architect
+    subgraph "Saint Tropez Royal Yield Vault (ERC-1155)"
+        Vault{Smart Contract}
+        Data[(On-Chain Metadata:<br/>Price, Yield 5.5%)]
+        Rules{Compliance Logic}
+    end
+
+    InvestorA[👤 Investor A<br/>Whitelisted] -- "Can trade" --> Token((Token Share))
+    InvestorB[👤 Investor B<br/>Whitelisted] -- "Can trade" --> Token
+    NonAuth[❌ Unverified User] -- "BLOCKED" --> Token
+
+    Vault --> Rules
+    Rules --> Token
+    Token --- Data
+
