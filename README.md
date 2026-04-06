@@ -75,7 +75,7 @@ Current Status
 
 I am actively developing this protocol. Here is the current status of the planned improvements:
 
-✅ **Asset Management**: Implemented granular pausing/unpausing for specific asset IDs to handle maintenance or legal updates.
+* ✅ **Asset Management**: Implemented granular pausing/unpausing for specific asset IDs to handle maintenance or legal updates.
 * ✅ Advanced Yield Distribution: Implemented proportional ETH-based profit sharing and automated calculation logic per asset holder.
 * ✅ Core Protocol Development: ERC-1155 implementation and role management.
 * ✅ Whitelisting System: Secure KYC-based transfer logic.
