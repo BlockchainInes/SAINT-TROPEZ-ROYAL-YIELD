@@ -33,8 +33,7 @@ graph TD
 
     style V fill:#f9f,stroke:#333,stroke-width:4px
     style I fill:#bbf,stroke:#333,stroke-width:2px
-
-    🛠️ Core Features
+🛠️ Core Features
 Fractionalized Ownership: High-value assets are divided into affordable on-chain tokens.
 
 Role-Based Access Control (RBAC):
@@ -59,11 +58,11 @@ Unit Testing: 100% coverage of core functions like minting, whitelisting, and ro
 
 Access Control (Revert Tests): Verified that unauthorized users are strictly blocked from sensitive administrative functions.
 
-Fuzz Testing: Property-based testing used to verify the claimYield logic across 256+ random scenarios (varying ETH deposits and token supplies) to ensure mathematical proportionality.
+Fuzz Testing: Property-based testing used to verify the claimYield logic across 256+ random scenarios (varying ETH deposits and token supplies).
 
-Invariant Testing: Mathematical proof that the Total Claimed Yield can never exceed the Total Deposited Yield for any given asset.
+Invariant Testing: Mathematical proof that the Total Claimed Yield can never exceed the Total Deposited Yield.
 
-Boundary Testing: Confirmed precision and stability with high token supplies (up to 1,000,000 shares per property).
+Boundary Testing: Confirmed precision and stability with high token supplies.
 
 🚀 Run Tests
 To verify the robustness locally, ensure you have Foundry installed and run:
