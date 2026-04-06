@@ -77,6 +77,10 @@ I am actively developing this protocol. Here is the current status of the planne
 
 * ✅ **Asset Management**: [DONE] Implemented granular pausing/unpausing for specific asset IDs to handle maintenance or legal updates.
 * ✅ Advanced Yield Distribution: [DONE] Implemented proportional ETH-based profit sharing and automated calculation logic per asset holder.
+* ✅ Core Protocol Development: ERC-1155 implementation and role management.
+* ✅ Whitelisting System: Secure KYC-based transfer logic.
+* ✅ Advanced Yield Logic: ETH-based distribution and claiming system.
+* ✅ Advanced Testing: Implementation of Fuzzing and Invariant tests.
 * 📜 **Deployment Scripts**: Planned full scripts for Sepolia and Ethereum Mainnet.
 * 🧪 **Advanced Testing**: Planned integration of Fuzzing and Invariant tests.
 * 🖥️ **Frontend Dashboard**: Planned UI build with React + Wagmi + RainbowKit.
