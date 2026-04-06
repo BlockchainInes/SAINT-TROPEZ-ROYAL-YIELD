@@ -79,19 +79,12 @@ I am actively developing this protocol. Here is the current status of the planne
 * ✅ Whitelisting System: Secure KYC-based transfer logic.
 * ✅ Advanced Yield Logic: ETH-based distribution and claiming system.
 * ✅ Advanced Testing: Implementation of Fuzzing and Invariant tests.
-* 📜 🚀 Deployment Info (Sepolia Testnet)
-
-The smart contract has been successfully deployed and verified on the Ethereum Sepolia Test Network.
-
-Project Name: Saint Tropez Royal Yield Vault
-
-Contract Address: 0xfb51a79da1666879ea0724ec3bfeeb1d492529e5
-
-Explorer Link: https://sepolia.etherscan.io/tx/0x950967e75209a9b8fc280c982ea40b2252f9d66374303a59572b1a2eda06b159
-
-Status: ✅ Verified (Public Source Code available)
-
-**Deployment Scripts**: Planned full scripts for Sepolia and Ethereum Mainnet.
+* ✅ 🚀 Deployment Info (Sepolia Testnet)
+  The smart contract has been successfully deployed and verified on the Ethereum Sepolia Test Network.
+  Project Name: Saint Tropez Royal Yield Vault
+  Contract Address: 0xfb51a79da1666879ea0724ec3bfeeb1d492529e5
+  Explorer Link: https://sepolia.etherscan.io/tx/0x950967e75209a9b8fc280c982ea40b2252f9d66374303a59572b1a2eda06b159
+  Status: ✅ Verified (Public Source Code available)
 * 🖥️ **Frontend Dashboard**: Planned UI build with React + Wagmi + RainbowKit.
 * 🤖 **Automation**: Planned automated yield calculation and claiming via Chainlink Keepers.
 * 🔍 **Audit Readiness**: Preparing full documentation for security audits.
