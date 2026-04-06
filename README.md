@@ -100,6 +100,6 @@ Environment: Designed for Ethereum / Layer 2 (Sepolia Testnet ready)
 
 [ ] Frontend Dashboard: UI build with React + Wagmi + RainbowKit.
 
-Author: Ines Krüger
+Author: Inés Krüger
 
 Smart Contract Developer & Blockchain Architect
