@@ -1,20 +1,39 @@
-# Schließt die von Foundry generierten Ordner aus
+# --- Foundry / Forge ---
+# Compiled artifacts and cache
 out/
 cache/
 artifacts/
 
-# Schließt Abhängigkeiten aus
+# --- Dependencies ---
+# Submodules are managed by Git, no need to track files
 lib/
 node_modules/
 
-# Schließt sensible Daten aus (wichtig für später!)
+# --- Security & Environment (CRITICAL) ---
+# Never upload your private keys or API keys
 .env
 .secret
+.env.local
+.env.setup
 
-# Schließt Deployment-Logs aus
+# --- Deployment & Scripts ---
+# Exclude sensitive transaction logs and broadcast data
 broadcast/
 
-# System- und Editor-Dateien
+# --- Testing & Analysis ---
+# Exclude gas reports and coverage results
+gas-report.txt
+coverage/
+.lcov
+*.json.lock
+
+# --- Editor & System ---
+# VS Code settings and OS-specific files
 .vscode/
 .DS_Store
+Thumbs.db
 *.log
+
+# --- Hardhat (if ever used alongside Forge) ---
+typechain/
+typechain-types/
