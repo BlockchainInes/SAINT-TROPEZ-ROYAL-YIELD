@@ -97,7 +97,7 @@ The screenshot above displays the actual working interface for investors. It is 
 - **On-chain Action Handling:** Simulated 'DEPLOY STAKING' functionality with user interaction feedback (Spinner and Alert).
 - **2026 Ready:** Fully updated protocol compliance and design standards.
 
-### 🚀 Nextsteps
+### 🚀 Next  steps
 * 🤖 **Automation**: Planned automated yield calculation and claiming via Chainlink Keepers.
 * 🔍 **Audit Readiness**: Preparing full documentation for security audits.
 
