@@ -16,7 +16,7 @@ The contract allows an Asset Manager to create digital tokens representing owner
 
 > *Exclusive Luxury Asset RWA Yield Farming Protocol*
 
-![Saint Tropez UI Status](./dashboard.png)
+![Saint Tropez UI Status](./new_dashboard.png)
 
 ---
 
