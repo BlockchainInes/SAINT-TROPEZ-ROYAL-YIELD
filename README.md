@@ -12,10 +12,13 @@ SAINT-TROPEZ-ROYAL-YIELD is a secure and compliant ERC-1155 smart contract engin
 
 The contract allows an Asset Manager to create digital tokens representing ownership shares in high-value properties, while a Security Officer manages investor whitelisting to ensure full regulatory compliance and KYC/AML standards.:
 
-![Saint Tropez UI Status](./dashboard.png)
+## 🧾 Verified Tokenization & Interaction Proof
 
-🛠️ Core Features
-Fractionalize Assets: Create ERC-1155 tokens representing shares of luxury property (fractionalizeAsset).
+To demonstrate the functional logic of the **Saint Tropez Royal Yield** interface, the following proof shows a successful user interaction within our fractionalization engine. 
+
+![Transaction Success Proof](./transaction_proof.png)
+
+> **Status:** UI Interaction and Fractional Ownership Logic Verified ✅
 
 ---
 
