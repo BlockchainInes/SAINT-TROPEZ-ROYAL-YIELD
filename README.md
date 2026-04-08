@@ -17,7 +17,19 @@ The contract allows an Asset Manager to create digital tokens representing owner
 🛠️ Core Features
 Fractionalize Assets: Create ERC-1155 tokens representing shares of luxury property (fractionalizeAsset).
 
+---
 
+## 🧾 Interaction & Transaction Proof
+
+To demonstrate the functional logic of the **Saint Tropez Royal Yield** interface, the following proof shows a successful user interaction. 
+
+When an investor triggers the **'DEPLOY STAKING'** action, the system executes the staking logic, provides real-time visual feedback, and confirms the deployment with a simulated on-chain transaction hash.
+
+![Transaction Success Proof](./transaction_proof.png)
+
+> **Status:** UI Interaction and Transaction Handling Verified ✅
+
+---
 
 Role-Based Access Control:
 
