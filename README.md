@@ -12,7 +12,7 @@ SAINT-TROPEZ-ROYAL-YIELD is a secure and compliant ERC-1155 smart contract engin
 
 The contract allows an Asset Manager to create digital tokens representing ownership shares in high-value properties, while a Security Officer manages investor whitelisting to ensure full regulatory compliance and KYC/AML standards.:
 
-
+![Saint Tropez UI Status](./dashboard.png)
 
 🛠️ Core Features
 Fractionalize Assets: Create ERC-1155 tokens representing shares of luxury property (fractionalizeAsset).
@@ -86,7 +86,18 @@ The smart contract has been successfully deployed and verified on the Ethereum S
 * **Contract Address:** `0xfb51a79da1666879ea0724ec3bfeeb1d492529e5`
 * **Explorer Link:** [View on Etherscan](https://sepolia.etherscan.io/address/0xfb51a79da1666879ea0724ec3bfeeb1d492529e5#code)
 * **Status:** ✅ **Verified** (Public Source Code available)
-* 🖥️ **Frontend Dashboard**: Planned UI build with React + Wagmi + RainbowKit.
+## 🖥️ Live Dashboard Interface (Preview)
+
+The screenshot above displays the actual working interface for investors. It is designed with a high-end, exclusive aesthetic, focusing on intuitive RWA (Real World Asset) interaction.
+
+### Key Features of the V1.0 UI:
+
+- **Secured Wallet Connection ✅:** Visual feedback confirms the investor's identity and wallet status.
+- **Yield Monitoring:** Current Annual Percentage Yield (APY) tracking, calibrated for luxury assets.
+- **On-chain Action Handling:** Simulated 'DEPLOY STAKING' functionality with user interaction feedback (Spinner and Alert).
+- **2026 Ready:** Fully updated protocol compliance and design standards.
+
+### 🚀 Nextsteps
 * 🤖 **Automation**: Planned automated yield calculation and claiming via Chainlink Keepers.
 * 🔍 **Audit Readiness**: Preparing full documentation for security audits.
 
