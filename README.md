@@ -70,7 +70,7 @@ I have developed and thoroughly tested the core features using Foundry with a 10
 
 ✅ Whitelist Logic: Confirmed investor management functionality.
 
-✅ Fractionalization: Tested minting and metadata storage.
+✅ Tokenization: Tested minting and metadata storage.
 
 ✅ Restricted Transfers: Ensured only whitelisted addresses can trade.
 
@@ -131,7 +131,7 @@ The screenshot above displays the actual working interface for investors. It is 
 
 ## 🛠 Technical Features (Updated)
 
-* **Fractionalization**: Divide high-value assets into ERC1155 tokens.
+* **Tokenization**: Divide high-value assets into ERC1155 tokens.
 * **Access Control**: Different levels of permissions (Admin, Security Officer, Asset Manager).
 * **Compliance**: Built-in whitelist system for KYC-verified investors.
 * **Granular Security**: Ability to pause trading for individual assets without affecting the entire vault.
