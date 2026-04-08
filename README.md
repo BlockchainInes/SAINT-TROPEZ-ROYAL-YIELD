@@ -2,7 +2,7 @@
 
 > **Repository:** `SAINT-TROPEZ-ROYAL-YIELD`
 
-## 💎 Luxury Real Estate Fractionalization Protocol
+## 💎 Luxury Real Estate Tokenization & Fractional Ownership Protocol
 **Tokenizing high-end properties in Saint-Tropez for fractional ownership.**
 
 
