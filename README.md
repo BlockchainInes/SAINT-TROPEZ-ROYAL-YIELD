@@ -14,6 +14,12 @@ The contract allows an Asset Manager to create digital tokens representing owner
 
 ---
 
+> *Exclusive Luxury Asset RWA Yield Farming Protocol*
+
+![Saint Tropez UI Status](./dashboard.png)
+
+---
+
 ## 🖥️ Live Dashboard Interface (Preview)
 
 The screenshot above displays the actual working interface for investors. It is designed with a high-end, exclusive aesthetic, focusing on intuitive RWA (Real World Asset) interaction.
