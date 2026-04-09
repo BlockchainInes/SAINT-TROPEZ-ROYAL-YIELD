@@ -139,8 +139,15 @@ The **Saint Tropez Royal Yield Vault** features a decentralized, push-based dist
 | **Gas Efficiency** | Off-chain checks prevent unnecessary on-chain computation. |
 | **Trustless** | Triggers are managed by a decentralized node network, not a centralized script. |
 
-### 🚀 Next  steps
-* 🔍 **Audit Readiness**: Preparing full documentation for security audits.
+
+### 🛡️ Audit Readiness & Security
+
+The **Saint Tropez Royal Yield Vault** is designed with a "Security First" mindset. The following measures ensure the safety of assets and automated processes:
+
+* **Access Control:** Granular Role-Based Access Control (RBAC) ensures only authorized managers can mint tokens or deposit yield.
+* **Reentrancy Protection:** All financial distributions are protected by OpenZeppelin's `ReentrancyGuard` to prevent recursive call attacks.
+* **Compliance Layer:** A mandatory whitelist prevents unverified transfers on the secondary market.
+* **Invariant Testing:** Initial test suites focus on ensuring that yield distribution can never exceed the deposited amount (Conservation of ETH).
 
 ---
 
