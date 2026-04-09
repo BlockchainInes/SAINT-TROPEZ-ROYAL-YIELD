@@ -169,28 +169,9 @@ Follow these steps to build and test the **Saint Tropez Royal Yield Vault** loca
 
 ### 1. Install Dependencies
 Clone the repository and install the necessary smart contract libraries:
+
 ```bash
 forge install
-## 💻 Tech Stack
-Language: Solidity ^0.8.20
-
-Framework: Foundry (Forge)
-
-Libraries: OpenZeppelin Contracts
-
-Testing: Forge Std
-
-📥 Quick Start
-Bash
-
-# 1. Install dependencies
-forge install
-
-# 2. Build the project
-forge build
-
-# 3. Run all tests
-forge test -vv
 
 
 
