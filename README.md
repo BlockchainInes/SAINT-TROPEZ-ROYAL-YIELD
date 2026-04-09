@@ -142,12 +142,20 @@ The **Saint Tropez Royal Yield Vault** features a decentralized, push-based dist
 
 ## 🛡️ Audit Readiness & Security
 
-The **Saint Tropez Royal Yield Vault** is designed with a "Security First" mindset. The following measures ensure the safety of assets and automated processes:
+The **Saint Tropez Royal Yield Vault** is architected with a "Security-First" philosophy. To ensure the highest standards of asset protection, the following measures have been implemented:
 
-* **Access Control:** Granular Role-Based Access Control (RBAC) ensures only authorized managers can mint tokens or deposit yield.
-* **Reentrancy Protection:** All financial distributions are protected by OpenZeppelin's `ReentrancyGuard` to prevent recursive call attacks.
-* **Compliance Layer:** A mandatory whitelist prevents unverified transfers on the secondary market.
-* **Invariant Testing:** Initial test suites focus on ensuring that yield distribution can never exceed the deposited amount (Conservation of ETH).
+### 🔒 Access & Compliance
+* **RBAC (Role-Based Access Control):** Utilizing OpenZeppelin's `AccessControl` to strictly separate concerns between `ASSET_MANAGER` and `SECURITY_OFFICER`.
+* **KYC Integration:** On-chain whitelist enforcement for all secondary market transfers (ERC-1155 `safeTransferFrom` override).
+
+### ⚡ Technical Safeguards
+* **Reentrancy Protection:** All financial state changes and ETH transfers are guarded by `nonReentrant` modifiers.
+* **Automation Security:** The `performUpkeep` function includes strict validation to ensure only legitimate yield distribution is executed.
+* **Audit Documentation:** A dedicated [SECURITY.md](./SECURITY.md) file outlines our responsible disclosure policy and core security principles.
+
+### 🧪 Quality Assurance
+* **Comprehensive Testing:** Automated Forge test suites verify the integrity of the yield distribution logic and role permissions.
+* **Static Analysis:** Code is pre-screened for common vulnerabilities like reentrancy, overflow (handled by Solidity 0.8+), and unauthorized access.
 
 ---
 
