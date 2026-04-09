@@ -151,7 +151,7 @@ The **Saint Tropez Royal Yield Vault** features a decentralized, push-based dist
 * **Compliance**: Built-in whitelist system for KYC-verified investors.
 * **Granular Security**: Ability to pause trading for individual assets without affecting the entire vault.
 
-💻 Tech Stack
+## 💻 Tech Stack
 Language: Solidity ^0.8.20
 
 Framework: Foundry (Forge)
