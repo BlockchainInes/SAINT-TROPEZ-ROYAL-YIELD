@@ -140,7 +140,7 @@ The **Saint Tropez Royal Yield Vault** features a decentralized, push-based dist
 | **Trustless** | Triggers are managed by a decentralized node network, not a centralized script. |
 
 
-### 🛡️ Audit Readiness & Security
+## 🛡️ Audit Readiness & Security
 
 The **Saint Tropez Royal Yield Vault** is designed with a "Security First" mindset. The following measures ensure the safety of assets and automated processes:
 
