@@ -1,39 +1,38 @@
-# --- Foundry / Forge ---
-# Compiled artifacts and cache
+# --- Foundry & Smart Contracts ---
+# Ignoriert die Kompilate (wichtig für Foundry!)
 out/
 cache/
 artifacts/
-
-# --- Dependencies ---
-# Submodules are managed by Git, no need to track files
-lib/
-node_modules/
-
-# --- Security & Environment (CRITICAL) ---
-# Never upload your private keys or API keys
-.env
-.secret
-.env.local
-.env.setup
-
-# --- Deployment & Scripts ---
-# Exclude sensitive transaction logs and broadcast data
-broadcast/
-
-# --- Testing & Analysis ---
-# Exclude gas reports and coverage results
-gas-report.txt
-coverage/
-.lcov
-*.json.lock
-
-# --- Editor & System ---
-# VS Code settings and OS-specific files
-.vscode/
-.DS_Store
-Thumbs.db
-*.log
-
-# --- Hardhat (if ever used alongside Forge) ---
 typechain/
 typechain-types/
+
+# --- Environment & Security ---
+# Niemals private Schlüssel oder API-Keys hochladen!
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite
+
+# --- Frontend & Node ---
+node_modules/
+.pnp
+.pnp.js
+build/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Deployments & Frameworks ---
+deployments/
+.openzeppelin/
+hardhat-debug.log
+solidity-files-cache.json
+
+# --- System & IDE ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
