@@ -151,6 +151,26 @@ The **Saint Tropez Royal Yield Vault** features a decentralized, push-based dist
 * **Compliance**: Built-in whitelist system for KYC-verified investors.
 * **Granular Security**: Ability to pause trading for individual assets without affecting the entire vault.
 
+## 💻 Technical Stack
+
+| Component | Technology |
+| :--- | :--- |
+| **Language** | Solidity ^0.8.20 |
+| **Framework** | Foundry (Forge) |
+| **Oracles** | Chainlink Automation |
+| **Libraries** | OpenZeppelin Contracts |
+| **Testing** | Forge Std |
+
+---
+
+## 🚀 Quick Start (Foundry)
+
+Follow these steps to build and test the **Saint Tropez Royal Yield Vault** locally.
+
+### 1. Install Dependencies
+Clone the repository and install the necessary smart contract libraries:
+```bash
+forge install
 ## 💻 Tech Stack
 Language: Solidity ^0.8.20
 
