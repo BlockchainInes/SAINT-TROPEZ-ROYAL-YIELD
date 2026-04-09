@@ -123,7 +123,21 @@ The screenshot above displays the actual working interface for investors. It is 
 - **On-chain Action Handling:** Simulated 'DEPLOY STAKING' functionality with user interaction feedback (Spinner and Alert).
 - **2026 Ready:** Fully updated protocol compliance and design standards.
 
-🤖 Automated Yield Distribution via Chainlink AutomationThe Saint Tropez Royal Yield Vault features a decentralized, push-based distribution model. By integrating Chainlink Automation, we eliminate the need for manual "claim" actions, providing a seamless and premium experience for property investors.⚙️ How it WorksYield Ingestion: As soon as rental income is deposited via depositYield(), the vault state is updated.Off-Chain Monitoring: Chainlink nodes monitor the contract state off-chain (at zero gas cost to the protocol) to detect undistributed yield for specific asset IDs.Decentralized Execution: Once yield is detected, the network triggers the performUpkeep function. The vault automatically calculates and transfers the proportional ETH share to all whitelisted holders.💎 Key AdvantagesFeatureBenefitSeamless UXInvestors receive income directly in their wallets without manual interaction.Gas EfficiencyOff-chain checks prevent unnecessary on-chain computation.TrustlessTriggers are managed by a decentralized node network, not a centralized script.
+## 🤖 Automated Yield Distribution via Chainlink Automation
+
+The **Saint Tropez Royal Yield Vault** features a decentralized, push-based distribution model. By integrating **Chainlink Automation**, we eliminate the need for manual "claim" actions, providing a seamless and premium experience for property investors.
+
+### ⚙️ How it Works
+* **Yield Ingestion:** As soon as rental income is deposited via `depositYield()`, the vault state is updated.
+* **Off-Chain Monitoring:** Chainlink nodes monitor the contract state off-chain (at **zero gas cost** to the protocol) to detect undistributed yield for specific asset IDs.
+* **Decentralized Execution:** Once yield is detected, the network triggers the `performUpkeep` function. The vault automatically calculates and transfers the proportional ETH share to all whitelisted holders.
+
+### 💎 Key Advantages
+| Feature | Benefit |
+| :--- | :--- |
+| **Seamless UX** | Investors receive income directly in their wallets without manual interaction. |
+| **Gas Efficiency** | Off-chain checks prevent unnecessary on-chain computation. |
+| **Trustless** | Triggers are managed by a decentralized node network, not a centralized script. |
 
 ### 🚀 Next  steps
 * 🤖 **Automation**: Planned automated yield calculation and claiming via Chainlink Keepers.
