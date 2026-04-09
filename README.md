@@ -161,6 +161,9 @@ The **Saint Tropez Royal Yield Vault** features a decentralized, push-based dist
 | **Libraries** | OpenZeppelin Contracts |
 | **Testing** | Forge Std |
 ---
+### 🏗️ Protocol Architecture
+
+```mermaid
 graph TD
     Admin((👑 Admin)) -- "Grants Roles" --> Vault
     Manager((💼 Asset Manager)) -- "Mints Property Tokens" --> Vault
@@ -176,10 +179,7 @@ graph TD
     InvestorB[👤 Investor B<br/>Whitelisted] -- "Can trade" --> Token
     NonAuth[❌ Unverified User] -- "BLOCKED" --> Token
 
-    Vault --> Rules
-    Rules --> Token
-    Token --- Data
----
+
 
 
     Vault --> Rules
