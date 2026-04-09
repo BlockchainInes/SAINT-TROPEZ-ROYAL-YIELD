@@ -140,7 +140,6 @@ The **Saint Tropez Royal Yield Vault** features a decentralized, push-based dist
 | **Trustless** | Triggers are managed by a decentralized node network, not a centralized script. |
 
 ### 🚀 Next  steps
-* 🤖 **Automation**: Planned automated yield calculation and claiming via Chainlink Keepers.
 * 🔍 **Audit Readiness**: Preparing full documentation for security audits.
 
 ---
