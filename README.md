@@ -163,18 +163,6 @@ The **Saint Tropez Royal Yield Vault** features a decentralized, push-based dist
 
 ---
 
-## 🚀 Quick Start (Foundry)
-
-Follow these steps to build and test the **Saint Tropez Royal Yield Vault** locally.
-
-### 1. Install Dependencies
-Clone the repository and install the necessary smart contract libraries:
-
-```bash
-forge install
-
-
-
 ### 🏗️ Protocol Architecture
 
 ```mermaid
