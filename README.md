@@ -123,22 +123,7 @@ The screenshot above displays the actual working interface for investors. It is 
 - **On-chain Action Handling:** Simulated 'DEPLOY STAKING' functionality with user interaction feedback (Spinner and Alert).
 - **2026 Ready:** Fully updated protocol compliance and design standards.
 
-🤖 Automated Yield Distribution (Chainlink Automation)
-The Saint Tropez Vault implements a decentralized, push-based yield distribution model using Chainlink Automation. This removes the friction of manual "claim" patterns, enhancing the user experience for property investors.
-
-How it works:
-Yield Ingestion: When rental income is deposited into the vault via depositYield(), the contract state is updated.
-
-Off-Chain Monitoring (checkUpkeep): Chainlink nodes constantly monitor the contract state off-chain (at no gas cost to the protocol) to check if undistributed yield is available for any specific asset ID.
-
-On-Chain Execution (performUpkeep): Once yield is detected, the Chainlink network triggers the distribution logic. The vault automatically calculates the proportional share for every whitelisted investor based on their current ERC-1155 token balance and transfers the ETH directly to their wallets.
-
-Key Benefits:
-Reduced Friction: Investors receive their rental income automatically without having to interact with the dApp manually.
-
-Gas Efficiency: By offloading the "check" logic to Chainlink's decentralized oracle network, the protocol saves unnecessary on-chain computation.
-
-Decentralization: The distribution trigger is handled by a network of nodes rather than a centralized server, maintaining the trustless nature of the vault.
+🤖 Automated Yield Distribution via Chainlink AutomationThe Saint Tropez Royal Yield Vault features a decentralized, push-based distribution model. By integrating Chainlink Automation, we eliminate the need for manual "claim" actions, providing a seamless and premium experience for property investors.⚙️ How it WorksYield Ingestion: As soon as rental income is deposited via depositYield(), the vault state is updated.Off-Chain Monitoring: Chainlink nodes monitor the contract state off-chain (at zero gas cost to the protocol) to detect undistributed yield for specific asset IDs.Decentralized Execution: Once yield is detected, the network triggers the performUpkeep function. The vault automatically calculates and transfers the proportional ETH share to all whitelisted holders.💎 Key AdvantagesFeatureBenefitSeamless UXInvestors receive income directly in their wallets without manual interaction.Gas EfficiencyOff-chain checks prevent unnecessary on-chain computation.TrustlessTriggers are managed by a decentralized node network, not a centralized script.
 
 ### 🚀 Next  steps
 * 🤖 **Automation**: Planned automated yield calculation and claiming via Chainlink Keepers.
